@@ -15,7 +15,7 @@ export const gameSlice = createSlice({
   },
   reducers: {
     gameInit: (state) => {
-      state.current = _.random(1, 50);
+      state.current = _.random(1, 10);
       state.steps = _.random(2, 3);
       state.operations = _.sampleSize(operations, 3);
       state.operands = _.sampleSize(numbers, 3);
