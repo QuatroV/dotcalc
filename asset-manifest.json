@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/dotcalc/static/js/main.b3d6194f.chunk.js",
-    "main.js.map": "/dotcalc/static/js/main.b3d6194f.chunk.js.map",
+    "main.js": "/dotcalc/static/js/main.a4949782.chunk.js",
+    "main.js.map": "/dotcalc/static/js/main.a4949782.chunk.js.map",
     "runtime-main.js": "/dotcalc/static/js/runtime-main.be732f67.js",
     "runtime-main.js.map": "/dotcalc/static/js/runtime-main.be732f67.js.map",
     "static/js/2.1bac5a93.chunk.js": "/dotcalc/static/js/2.1bac5a93.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.be732f67.js",
     "static/js/2.1bac5a93.chunk.js",
-    "static/js/main.b3d6194f.chunk.js"
+    "static/js/main.a4949782.chunk.js"
   ]
 }
