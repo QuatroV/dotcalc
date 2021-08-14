@@ -12,6 +12,7 @@ export const gameSlice = createSlice({
     steps: 0,
     operations: [],
     operands: [],
+    gameState: "",
   },
   reducers: {
     gameInit: (state) => {
@@ -25,15 +26,20 @@ export const gameSlice = createSlice({
         state.operations,
         state.operands
       );
+      state.gameState = "in progress";
       return state;
     },
     updateCurrent: (state, action) => {
       state.steps -= 1;
       state.current = action.payload;
     },
+    updateGameState: (state, action) => {
+      state.gameState = action.payload;
+    },
   },
 });
 
-export const { gameInit, generateTarget, updateCurrent } = gameSlice.actions;
+export const { gameInit, generateTarget, updateCurrent, updateGameState } =
+  gameSlice.actions;
 
 export default gameSlice.reducer;

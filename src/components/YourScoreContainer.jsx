@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import ButtonSection from "./ButtonSection";
@@ -10,10 +10,16 @@ import { useDidMountEffect } from "../assets/hooks";
 
 const YourScore = () => {
   const currentNum = useSelector((state) => state.game.current);
+  const gameState = useSelector((state) => state.game.gameState);
 
   const [currentValue, setCurrentValue] = useState(currentNum);
 
   const dispatch = useDispatch();
+
+  useDidMountEffect(() => {
+    console.log(gameState, currentNum);
+    setCurrentValue(currentNum);
+  }, [gameState]);
 
   useDidMountEffect(() => {
     dispatch(updateCurrent(currentValue));

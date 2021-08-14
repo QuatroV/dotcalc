@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../components/Button";
 import Container from "../components/Container";
-import { gameInit } from "../store/gameSlice";
+import { gameInit, updateGameState } from "../store/gameSlice";
 import Warning from "./Warning";
 import WinMessage from "./WinMessage";
 
@@ -11,19 +11,17 @@ const CompareContainer = () => {
   const steps = useSelector((state) => state.game.steps);
   const target = useSelector((state) => state.game.target);
   const current = useSelector((state) => state.game.current);
+  const gameState = useSelector((state) => state.game.gameState);
 
   const dispatch = useDispatch();
 
   const tooManySteps = steps < 0;
 
-  const [gameState, setGameState] = useState("in progress");
-
   const handleCompare = () => {
-    setGameState("results");
+    dispatch(updateGameState("results"));
   };
 
   const handleRestart = () => {
-    setGameState("in progress");
     dispatch(gameInit());
   };
 

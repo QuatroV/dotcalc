@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import Grid from "./Grid";
 
@@ -9,8 +9,14 @@ import { applyOperation } from "../assets/utils";
 export const ButtonSection = ({ setCurrentValue, currentValue }) => {
   const operands = useSelector((state) => state.game.operands);
   const operations = useSelector((state) => state.game.operations);
+  const gameState = useSelector((state) => state.game.gameState);
+  const currentNum = useSelector((state) => state.game.current);
 
   const [stack, setStack] = useState([currentValue]);
+
+  useEffect(() => {
+    setStack([currentNum]);
+  }, [gameState]);
 
   const addOperand = (operand) => {
     if (operations.includes(stack[1])) {
