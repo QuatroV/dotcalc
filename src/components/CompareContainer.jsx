@@ -29,7 +29,9 @@ const CompareContainer = () => {
     return (
       <Container>
         <Warning>You've made too many steps!</Warning>
-        <Button type="primary">Restart game</Button>
+        <Button type="primary" onClick={handleRestart}>
+          Restart game
+        </Button>
       </Container>
     );
 
