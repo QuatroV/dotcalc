@@ -22,6 +22,7 @@ const CompareContainer = () => {
   };
 
   const handleRestart = () => {
+    dispatch(updateGameState("results"));
     dispatch(gameInit());
   };
 
