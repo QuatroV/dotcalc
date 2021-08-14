@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const Background = styled.div`
+import { isMobile } from "react-device-detect";
+
+const Background = ({ children }) => {
+  return <StyledBackground isMobile={isMobile}>{children}</StyledBackground>;
+};
+
+const StyledBackground = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -17,7 +23,7 @@ const Background = styled.div`
     #4568dc
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
-  align-items: center;
+  align-items: ${(props) => (props.isMobile ? "flex-start" : "center")};
   justify-content: center;
 `;
 

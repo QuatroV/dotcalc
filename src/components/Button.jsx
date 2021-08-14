@@ -1,14 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ type, children, onClick }) => {
+const Button = ({ type, children, onClick, isMobile }) => {
   switch (type) {
     case "primary":
-      return <PrimaryButton onClick={onClick}>{children}</PrimaryButton>;
+      return (
+        <PrimaryButton onClick={onClick} isMobile={isMobile}>
+          {children}
+        </PrimaryButton>
+      );
     case "round":
-      return <RoundButton onClick={onClick}>{children}</RoundButton>;
+      return (
+        <RoundButton onClick={onClick} isMobile={isMobile}>
+          {children}
+        </RoundButton>
+      );
     default:
-      return <DefaultButton onClick={onClick}>{children}</DefaultButton>;
+      return (
+        <DefaultButton onClick={onClick} isMobile={isMobile}>
+          {children}
+        </DefaultButton>
+      );
   }
 };
 
@@ -21,7 +33,7 @@ const PrimaryButton = styled.button`
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
-  font-size: 19px;
+  font-size: ${(props) => (props.isMobile ? "60px" : "19px")};
   padding: 12px 37px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #88199e;

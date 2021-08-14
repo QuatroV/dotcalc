@@ -13,7 +13,7 @@ const TargetContainer = () => {
         <LittleText>the target is</LittleText>
         <StyledText>{target}</StyledText>
         <LittleText>steps</LittleText>
-        <StyledText>{steps}</StyledText>
+        <StyledText>{steps >= 0 ? steps : 0}</StyledText>
       </StyledTargetText>
     </Container>
   );

@@ -26,16 +26,6 @@ const CompareContainer = () => {
     dispatch(gameInit());
   };
 
-  if (tooManySteps)
-    return (
-      <Container>
-        <Warning>You've made too many steps!</Warning>
-        <Button type="primary" onClick={handleRestart}>
-          Restart game
-        </Button>
-      </Container>
-    );
-
   switch (gameState) {
     case "in progress":
       return (
@@ -48,8 +38,10 @@ const CompareContainer = () => {
     case "results":
       return (
         <Container>
-          {current === target ? (
+          {current === target && !tooManySteps ? (
             <WinMessage>Numbers are equal, you're right! </WinMessage>
+          ) : tooManySteps ? (
+            <Warning>You've made too many steps!</Warning>
           ) : (
             <Warning>Numbers are not equal!</Warning>
           )}
