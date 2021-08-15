@@ -55,7 +55,7 @@ const CompareContainer = ({ isMobile }) => {
           <MobileContainer>
             {current === target && !tooManySteps ? (
               <WinMessage isMobile>
-                Numbers are equal, you're right! Your score is {score} now!
+                Numbers are equal, you're right! Your score is {score + 1} now!
               </WinMessage>
             ) : tooManySteps ? (
               <Warning isMobile>You've made too many steps!</Warning>
@@ -84,7 +84,7 @@ const CompareContainer = ({ isMobile }) => {
         <Container>
           {current === target && !tooManySteps ? (
             <WinMessage>
-              Numbers are equal, you're right! Your score is {score} now!
+              Numbers are equal, you're right! Your score is {score + 1} now!
             </WinMessage>
           ) : tooManySteps ? (
             <Warning>You've made too many steps!</Warning>
