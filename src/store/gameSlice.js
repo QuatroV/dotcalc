@@ -26,6 +26,7 @@ export const gameSlice = createSlice({
         state.operations,
         state.operands
       );
+      state.steps += 1;
       state.gameState = "in progress";
       return state;
     },

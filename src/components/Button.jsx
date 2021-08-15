@@ -33,6 +33,7 @@ const PrimaryButton = styled.button`
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
+  ${(props) => (props.isMobile ? "height: 140px;" : null)}
   font-size: ${(props) => (props.isMobile ? "60px" : "19px")};
   padding: 12px 37px;
   text-decoration: none;

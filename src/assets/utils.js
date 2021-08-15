@@ -1,6 +1,7 @@
 import _ from "lodash";
 
 export const applyOperation = (value, operation, num) => {
+  console.log("operation:", value, operation, num);
   switch (operation) {
     case "+":
       return value + num;
@@ -14,6 +15,7 @@ export const applyOperation = (value, operation, num) => {
 };
 
 export const getTarget = (initialValue, steps, operations, operands) => {
+  console.log("steps ", steps);
   for (let i = 0; i < steps; ++i) {
     const randomOperation = _.sample(operations);
     const randomOperand = _.sample(operands);

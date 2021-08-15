@@ -5,6 +5,7 @@ import Background from "../components/Background";
 import MainTitle from "../components/MainTitle";
 import MobileMainTitle from "../components/MobileMainTitle";
 import MainContainer from "../components/MainContainer";
+import Card from "../components/Card";
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
@@ -52,16 +53,18 @@ const StartPage = () => {
           <MobileMainTitle hasIcon>dotCalc</MobileMainTitle>
         </MobileContainer>
         <MobileContainer>
-          <StyledTitle>Welcome to the dotCalc game!</StyledTitle>
-          <StyledMobileText>
-            The rules are simple - at the begging of the game you will be given
-            two numbers - initial and target. The goal is to get the target
-            number from the initial one. You can do that by using given math
-            operations with other numbers. The number of math operations you can
-            apply to the initial number is limited - you'll lose if you exceed
-            that number. <br />
-            Start the game by pressing the button below
-          </StyledMobileText>
+          <StyledMobileTitle>Welcome to the dotCalc game!</StyledMobileTitle>
+          <Card>
+            <StyledMobileText>
+              The rules are simple - at the begging of the game you will be
+              given two numbers - initial and target. The goal is to get the
+              target number from the initial one. You can do that by using given
+              math operations with other numbers. The number of math operations
+              you can apply to the initial number is limited - you'll lose if
+              you exceed that number. <br />
+              Start the game by pressing the button below
+            </StyledMobileText>
+          </Card>
         </MobileContainer>
         <MobileContainer>
           <Link
@@ -87,15 +90,22 @@ const StyledText = styled.div`
 `;
 
 const StyledMobileText = styled.div`
-  padding: 20px;
+  padding: 10px 20px;
   line-height: 50px;
   text-align: justify;
 `;
 
 const StyledTitle = styled.div`
+  padding-left: 4px;
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+`;
+
+const StyledMobileTitle = styled.div`
   padding-left: 20px;
   font-size: 60px;
   font-family: "Lato", sans-serif;
+  margin-bottom: 16px;
 `;
 
 export default StartPage;

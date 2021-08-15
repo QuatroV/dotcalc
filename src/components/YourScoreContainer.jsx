@@ -16,12 +16,11 @@ const YourScore = () => {
 
   const dispatch = useDispatch();
 
-  useDidMountEffect(() => {
-    console.log(gameState, currentNum);
+  useEffect(() => {
     setCurrentValue(currentNum);
   }, [gameState]);
 
-  useDidMountEffect(() => {
+  useEffect(() => {
     dispatch(updateCurrent(currentValue));
   }, [currentValue]);
 
