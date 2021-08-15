@@ -8,6 +8,8 @@ import { gameInit, updateGameState } from "../store/gameSlice";
 import Warning from "./Warning";
 import WinMessage from "./WinMessage";
 
+import { addPointsToTheScore } from "../assets/utils";
+
 const CompareContainer = ({ isMobile }) => {
   const steps = useSelector((state) => state.game.steps);
   const target = useSelector((state) => state.game.target);
@@ -23,6 +25,7 @@ const CompareContainer = ({ isMobile }) => {
   };
 
   const handleRestart = () => {
+    if (current === target && !tooManySteps) addPointsToTheScore();
     dispatch(updateGameState("results"));
     dispatch(gameInit());
   };

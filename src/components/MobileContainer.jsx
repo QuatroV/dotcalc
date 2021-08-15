@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-const AnimatedMobileContainer = ({ children }) => {
+const AnimatedMobileContainer = ({ children, onClick }) => {
   const fade = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
     delay: 100,
   });
-  return <StyledMobileContainer style={fade}>{children}</StyledMobileContainer>;
+  return (
+    <StyledMobileContainer onClick={onClick} style={fade}>
+      {children}
+    </StyledMobileContainer>
+  );
 };
 
 const StyledMobileContainer = styled(animated.div)`

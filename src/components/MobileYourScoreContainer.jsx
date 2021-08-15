@@ -6,7 +6,6 @@ import MobileContainer from "./MobileContainer";
 
 import { useSelector, useDispatch } from "react-redux";
 import { updateCurrent } from "../store/gameSlice";
-import { useDidMountEffect } from "../assets/hooks";
 
 const MobileYourScore = () => {
   const currentNum = useSelector((state) => state.game.current);

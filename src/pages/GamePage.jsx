@@ -13,6 +13,8 @@ import MobileContainer from "../components/MobileContainer";
 import MobileMainTitle from "../components/MobileMainTitle";
 import MobileYourScoreContainer from "../components/MobileYourScoreContainer";
 
+import TitleContainer from "../components/TitleContainer";
+
 import { BrowserView, MobileView, isMobile } from "react-device-detect";
 
 const GamePage = () => {
@@ -20,18 +22,14 @@ const GamePage = () => {
     <Background>
       <BrowserView>
         <MainContainer>
-          <Container>
-            <MainTitle hasIcon>dotCalc</MainTitle>
-          </Container>
+          <TitleContainer />
           <TargetContainer />
           <YourScoreContainer />
           <CompareContainer />
         </MainContainer>
       </BrowserView>
       <MobileView>
-        <MobileContainer>
-          <MobileMainTitle hasIcon>dotCalc</MobileMainTitle>
-        </MobileContainer>
+        <TitleContainer isMobile />
         <TargetContainer isMobile />
         <MobileYourScoreContainer />
         <CompareContainer isMobile />

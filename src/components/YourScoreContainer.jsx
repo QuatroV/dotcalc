@@ -6,7 +6,6 @@ import Container from "./Container";
 
 import { useSelector, useDispatch } from "react-redux";
 import { updateCurrent } from "../store/gameSlice";
-import { useDidMountEffect } from "../assets/hooks";
 
 const YourScore = () => {
   const currentNum = useSelector((state) => state.game.current);

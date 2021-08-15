@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-const AnimatedContainer = ({ children }) => {
+const AnimatedContainer = ({ children, onClick, clickable }) => {
   const fade = useSpring({
     to: { opacity: 1, marginTop: 0 },
     from: { opacity: 0, marginTop: 100 },
     delay: 100,
   });
-  return <StyledContainer style={fade}>{children}</StyledContainer>;
+  return (
+    <StyledContainer clickable={clickable} style={fade} onClick={onClick}>
+      {children}
+    </StyledContainer>
+  );
 };
 
 const StyledContainer = styled(animated.div)`
@@ -25,6 +29,7 @@ const StyledContainer = styled(animated.div)`
   text-shadow: 1px 1px 11px rgba(0, 0, 0, 0.35);
   color: #ffffff;
   margin: 8px;
+  ${(props) => (props.clickable ? "cursor: pointer;" : null)}
 `;
 
 export default AnimatedContainer;
