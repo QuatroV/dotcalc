@@ -72,7 +72,8 @@ const DefaultButton = styled.button`
 `;
 
 const RoundButton = styled.button`
-  font-size: 19px;
+  font-size: ${(props) => (props.isMobile ? "80px" : "19px")};
+  ${(props) => (props.isMobile ? "height: 250px;" : null)}
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2px);
@@ -89,7 +90,7 @@ const RoundButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   opacity: 0.9;
-  width: 49px;
+  width: ${(props) => (props.isMobile ? "250px" : "49px")};
   color: #ffffff;
   text-shadow: 2px 3px 8px rgba(0, 0, 0, 1);
 `;

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 import { applyOperation } from "../assets/utils";
 
-export const ButtonSection = ({ setCurrentValue, currentValue }) => {
+export const ButtonSection = ({ setCurrentValue, currentValue, isMobile }) => {
   const operands = useSelector((state) => state.game.operands);
   const operations = useSelector((state) => state.game.operations);
   const gameState = useSelector((state) => state.game.gameState);
@@ -31,23 +31,47 @@ export const ButtonSection = ({ setCurrentValue, currentValue }) => {
   };
 
   return (
-    <Grid columns="3" gap="4px">
-      <Button type="round" onClick={() => addOperation(operations[0])}>
+    <Grid columns="3" isMobile={isMobile} gap={isMobile ? "20px" : "4px"}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperation(operations[0])}
+      >
         {operations[0]}
       </Button>
-      <Button type="round" onClick={() => addOperand(operands[1])}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperand(operands[1])}
+      >
         {operands[1]}
       </Button>
-      <Button type="round" onClick={() => addOperation(operations[1])}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperation(operations[1])}
+      >
         {operations[1]}
       </Button>
-      <Button type="round" onClick={() => addOperand(operands[0])}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperand(operands[0])}
+      >
         {operands[0]}
       </Button>
-      <Button type="round" onClick={() => addOperation(operations[2])}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperation(operations[2])}
+      >
         {operations[2]}
       </Button>
-      <Button type="round" onClick={() => addOperand(operands[2])}>
+      <Button
+        isMobile={isMobile}
+        type="round"
+        onClick={() => addOperand(operands[2])}
+      >
         {operands[2]}
       </Button>
     </Grid>

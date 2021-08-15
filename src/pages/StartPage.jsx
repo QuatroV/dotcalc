@@ -54,17 +54,15 @@ const StartPage = () => {
         </MobileContainer>
         <MobileContainer>
           <StyledMobileTitle>Welcome to the dotCalc game!</StyledMobileTitle>
-          <Card>
-            <StyledMobileText>
-              The rules are simple - at the begging of the game you will be
-              given two numbers - initial and target. The goal is to get the
-              target number from the initial one. You can do that by using given
-              math operations with other numbers. The number of math operations
-              you can apply to the initial number is limited - you'll lose if
-              you exceed that number. <br />
-              Start the game by pressing the button below
-            </StyledMobileText>
-          </Card>
+          <StyledMobileText>
+            The rules are simple - at the begging of the game you will be given
+            two numbers - initial and target. The goal is to get the target
+            number from the initial one. You can do that by using given math
+            operations with other numbers. The number of math operations you can
+            apply to the initial number is limited - you'll lose if you exceed
+            that number. <br />
+            Start the game by pressing the button below
+          </StyledMobileText>
         </MobileContainer>
         <MobileContainer>
           <Link
@@ -91,7 +89,7 @@ const StyledText = styled.div`
 
 const StyledMobileText = styled.div`
   padding: 10px 20px;
-  line-height: 50px;
+  line-height: 47px;
   text-align: justify;
 `;
 
@@ -105,7 +103,6 @@ const StyledMobileTitle = styled.div`
   padding-left: 20px;
   font-size: 60px;
   font-family: "Lato", sans-serif;
-  margin-bottom: 16px;
 `;
 
 export default StartPage;
