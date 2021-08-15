@@ -52,12 +52,13 @@ const PrimaryButton = styled.button`
 `;
 
 const DefaultButton = styled.button`
-  font-size: 19px;
+  font-size: ${(props) => (props.isMobile ? "70px" : "19px")};
+  ${(props) => (props.isMobile ? "height: 140px;" : null)}
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 12px 37px;
   :active {
@@ -69,6 +70,9 @@ const DefaultButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   opacity: 0.9;
+  color: #ffffff;
+  text-shadow: 2px 3px 8px rgba(0, 0, 0, 1);
+  cursor: pointer;
 `;
 
 const RoundButton = styled.button`

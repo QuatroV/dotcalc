@@ -1,5 +1,7 @@
 import _ from "lodash";
 
+import { themes } from "./constants";
+
 export const applyOperation = (value, operation, num) => {
   switch (operation) {
     case "+":
@@ -25,7 +27,17 @@ export const getTarget = (initialValue, steps, operations, operands) => {
 export const addPointsToTheScore = () => {
   const gameStorage = window.localStorage;
   let score = gameStorage.getItem("score");
-  console.log(Number.parseInt(score) + 1);
   if (score) gameStorage.setItem("score", Number.parseInt(score) + 1);
   else gameStorage.setItem("score", 1);
+};
+
+export const setRandomTheme = () => {
+  let randomTheme;
+  if (window.localStorage.getItem("theme")) {
+    randomTheme = _.sample(
+      themes.filter((theme) => theme !== window.localStorage.getItem("theme"))
+    );
+  } else randomTheme = _.sample(themes);
+  window.localStorage.setItem("theme", randomTheme);
+  return randomTheme;
 };

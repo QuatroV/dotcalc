@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { gameInit } from "../store/gameSlice";
 import { BrowserView, MobileView } from "react-device-detect";
+import { useEffect } from "react";
 
 const StartPage = () => {
   const dispatch = useDispatch();

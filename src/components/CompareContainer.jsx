@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../components/Button";
@@ -17,6 +17,16 @@ const CompareContainer = ({ isMobile }) => {
   const gameState = useSelector((state) => state.game.gameState);
 
   const dispatch = useDispatch();
+
+  const [score, setScore] = useState(
+    window.localStorage.getItem(
+      "score" ? window.localStorage.getItem("score") : 0
+    )
+  );
+
+  useEffect(() => {
+    setScore(window.localStorage.getItem("score"));
+  }, [gameState]);
 
   const tooManySteps = steps < 0;
 
@@ -45,7 +55,7 @@ const CompareContainer = ({ isMobile }) => {
           <MobileContainer>
             {current === target && !tooManySteps ? (
               <WinMessage isMobile>
-                Numbers are equal, you're right!{" "}
+                Numbers are equal, you're right! Your score is {score} now!
               </WinMessage>
             ) : tooManySteps ? (
               <Warning isMobile>You've made too many steps!</Warning>
@@ -73,7 +83,9 @@ const CompareContainer = ({ isMobile }) => {
       return (
         <Container>
           {current === target && !tooManySteps ? (
-            <WinMessage>Numbers are equal, you're right! </WinMessage>
+            <WinMessage>
+              Numbers are equal, you're right! Your score is {score} now!
+            </WinMessage>
           ) : tooManySteps ? (
             <Warning>You've made too many steps!</Warning>
           ) : (
