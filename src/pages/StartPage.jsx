@@ -22,7 +22,7 @@ import { useEffect } from "react";
 const StartPage = () => {
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleClick = (e) => {
     const { value } = e.target;
     dispatch(setGameDifficulty(value));
   };
@@ -49,7 +49,7 @@ const StartPage = () => {
           <Container>
             <StyledWrapper>
               <StyledDifficultyText>Difficulty:</StyledDifficultyText>
-              <Dropdown onChange={handleChange} items={gameDifficulties} />
+              <Dropdown onClick={handleClick} items={gameDifficulties} />
               <StyledLink
                 to="/game"
                 onClick={() => {
@@ -81,7 +81,7 @@ const StartPage = () => {
         <MobileContainer>
           <StyledWrapper>
             <StyledDifficultyText>Difficulty:</StyledDifficultyText>
-            <Dropdown isMobile items={gameDifficulties} />
+            <Dropdown isMobile onClick={handleClick} items={gameDifficulties} />
             <StyledMobileLink
               to="/game"
               onClick={() => {
