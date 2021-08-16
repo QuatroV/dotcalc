@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Dropdown = ({ items, isMobile, onChange }) => {
   return (
-    <StyledSelect onChange={onChange} isMobile={isMobile} name="select">
+    <StyledSelect onClick={onChange} isMobile={isMobile} name="select">
       {items.map((item) => {
         return <StyledOption value={item}>{item}</StyledOption>;
       })}
