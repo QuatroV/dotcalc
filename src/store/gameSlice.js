@@ -16,8 +16,22 @@ export const gameSlice = createSlice({
   },
   reducers: {
     gameInit: (state) => {
-      state.current = _.random(1, 10);
-      state.steps = _.random(2, 3);
+      switch (state.gameDifficulty) {
+        case "easy":
+          state.steps = _.random(2, 3);
+          state.current = _.random(1, 5);
+          break;
+        case "hard":
+          state.steps = _.random(3, 4);
+          state.current = _.random(1, 25);
+          break;
+        default:
+        case "middle":
+          state.steps = _.random(2, 3);
+          state.current = _.random(1, 10);
+          break;
+      }
+      console.log("before", state.steps);
       state.operations = _.sampleSize(operations, 3);
       state.operands = _.sampleSize(numbers, 3);
       state.target = getTarget(
@@ -27,6 +41,7 @@ export const gameSlice = createSlice({
         state.operands
       );
       state.steps += 1;
+      console.log("after", state.steps);
       state.gameState = "in progress";
       return state;
     },
@@ -37,10 +52,18 @@ export const gameSlice = createSlice({
     updateGameState: (state, action) => {
       state.gameState = action.payload;
     },
+    setGameDifficulty: (state, action) => {
+      state.gameDifficulty = action.payload;
+    },
   },
 });
 
-export const { gameInit, generateTarget, updateCurrent, updateGameState } =
-  gameSlice.actions;
+export const {
+  gameInit,
+  generateTarget,
+  updateCurrent,
+  updateGameState,
+  setGameDifficulty,
+} = gameSlice.actions;
 
 export default gameSlice.reducer;

@@ -6,7 +6,11 @@ import MainTitle from "../components/MainTitle";
 import MobileMainTitle from "../components/MobileMainTitle";
 import MainContainer from "../components/MainContainer";
 import Card from "../components/Card";
+import Dropdown from "../components/Dropdown";
 import styled from "styled-components";
+
+import { gameDifficulties } from "../assets/constants";
+import { setGameDifficulty } from "../store/gameSlice";
 
 import { Link } from "react-router-dom";
 
@@ -17,6 +21,11 @@ import { useEffect } from "react";
 
 const StartPage = () => {
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    dispatch(setGameDifficulty(value));
+  };
 
   return (
     <Background>
@@ -38,14 +47,18 @@ const StartPage = () => {
             </StyledText>
           </Container>
           <Container>
-            <Link
-              to="/game"
-              onClick={() => {
-                dispatch(gameInit());
-              }}
-            >
-              <Button type="primary">Start game</Button>
-            </Link>
+            <StyledWrapper>
+              <StyledDifficultyText>Difficulty:</StyledDifficultyText>
+              <Dropdown onChange={handleChange} items={gameDifficulties} />
+              <StyledLink
+                to="/game"
+                onClick={() => {
+                  dispatch(gameInit());
+                }}
+              >
+                <Button type="primary">Start game</Button>
+              </StyledLink>
+            </StyledWrapper>
           </Container>
         </MainContainer>
       </BrowserView>
@@ -66,16 +79,20 @@ const StartPage = () => {
           </StyledMobileText>
         </MobileContainer>
         <MobileContainer>
-          <Link
-            to="/game"
-            onClick={() => {
-              dispatch(gameInit());
-            }}
-          >
-            <Button isMobile type="primary">
-              Start game
-            </Button>
-          </Link>
+          <StyledWrapper>
+            <StyledDifficultyText>Difficulty:</StyledDifficultyText>
+            <Dropdown isMobile items={gameDifficulties} />
+            <StyledMobileLink
+              to="/game"
+              onClick={() => {
+                dispatch(gameInit());
+              }}
+            >
+              <Button isMobile type="primary">
+                Start game
+              </Button>
+            </StyledMobileLink>
+          </StyledWrapper>
         </MobileContainer>
       </MobileView>
     </Background>
@@ -104,6 +121,23 @@ const StyledMobileTitle = styled.div`
   padding-left: 20px;
   font-size: 60px;
   font-family: "Lato", sans-serif;
+`;
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledLink = styled(Link)`
+  margin-top: 8px;
+`;
+
+const StyledDifficultyText = styled.span`
+  margin-bottom: 4px;
+`;
+
+const StyledMobileLink = styled(Link)`
+  margin-top: 20px;
 `;
 
 export default StartPage;

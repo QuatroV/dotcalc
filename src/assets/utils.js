@@ -3,6 +3,7 @@ import _ from "lodash";
 import { themes } from "./constants";
 
 export const applyOperation = (value, operation, num) => {
+  console.log(value, operation, num);
   switch (operation) {
     case "+":
       return value + num;
@@ -34,7 +35,11 @@ export const addPointsToTheScore = () => {
 export const setNextTheme = () => {
   let nextTheme;
   if (window.localStorage.getItem("theme")) {
-    nextTheme = themes[(themes.indexOf(window.localStorage.getItem("theme")) + 1)%themes.length];
+    nextTheme =
+      themes[
+        (themes.indexOf(window.localStorage.getItem("theme")) + 1) %
+          themes.length
+      ];
   } else nextTheme = _.sample(themes);
   window.localStorage.setItem("theme", nextTheme);
   return nextTheme;
