@@ -31,13 +31,11 @@ export const addPointsToTheScore = () => {
   else gameStorage.setItem("score", 1);
 };
 
-export const setRandomTheme = () => {
-  let randomTheme;
+export const setNextTheme = () => {
+  let nextTheme;
   if (window.localStorage.getItem("theme")) {
-    randomTheme = _.sample(
-      themes.filter((theme) => theme !== window.localStorage.getItem("theme"))
-    );
-  } else randomTheme = _.sample(themes);
-  window.localStorage.setItem("theme", randomTheme);
-  return randomTheme;
+    nextTheme = themes[(themes.indexOf(window.localStorage.getItem("theme")) + 1)%themes.length];
+  } else nextTheme = _.sample(themes);
+  window.localStorage.setItem("theme", nextTheme);
+  return nextTheme;
 };

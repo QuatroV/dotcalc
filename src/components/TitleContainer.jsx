@@ -9,7 +9,7 @@ import Button from "../components/Button";
 
 import SettingsIcon from "../icons/settings.png";
 
-import { setRandomTheme } from "../assets/utils";
+import { setNextTheme } from "../assets/utils";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateTheme } from "../store/themeSlice";
@@ -47,8 +47,8 @@ const TitleContainer = ({ isMobile }) => {
               <Button
                 isMobile
                 onClick={() => {
-                  const randomTheme = setRandomTheme();
-                  dispatch(updateTheme(randomTheme));
+                  const nextTheme = setNextTheme();
+                  dispatch(updateTheme(nextTheme));
                 }}
               >
                 {" "}
@@ -73,8 +73,8 @@ const TitleContainer = ({ isMobile }) => {
             <StyledText>The current theme is "{curentThemeName}"</StyledText>
             <Button
               onClick={() => {
-                const randomTheme = setRandomTheme();
-                dispatch(updateTheme(randomTheme));
+                const nextTheme = setNextTheme();
+                dispatch(updateTheme(nextTheme));
               }}
             >
               {" "}
