@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/dotcalc/static/js/main.4e1e13a5.chunk.js",
-    "main.js.map": "/dotcalc/static/js/main.4e1e13a5.chunk.js.map",
+    "main.js": "/dotcalc/static/js/main.96833938.chunk.js",
+    "main.js.map": "/dotcalc/static/js/main.96833938.chunk.js.map",
     "runtime-main.js": "/dotcalc/static/js/runtime-main.5f25fe33.js",
     "runtime-main.js.map": "/dotcalc/static/js/runtime-main.5f25fe33.js.map",
-    "static/js/2.2275d68e.chunk.js": "/dotcalc/static/js/2.2275d68e.chunk.js",
-    "static/js/2.2275d68e.chunk.js.map": "/dotcalc/static/js/2.2275d68e.chunk.js.map",
+    "static/js/2.1296f084.chunk.js": "/dotcalc/static/js/2.1296f084.chunk.js",
+    "static/js/2.1296f084.chunk.js.map": "/dotcalc/static/js/2.1296f084.chunk.js.map",
     "static/js/3.9926a442.chunk.js": "/dotcalc/static/js/3.9926a442.chunk.js",
     "static/js/3.9926a442.chunk.js.map": "/dotcalc/static/js/3.9926a442.chunk.js.map",
     "index.html": "/dotcalc/index.html",
-    "static/js/2.2275d68e.chunk.js.LICENSE.txt": "/dotcalc/static/js/2.2275d68e.chunk.js.LICENSE.txt",
+    "static/js/2.1296f084.chunk.js.LICENSE.txt": "/dotcalc/static/js/2.1296f084.chunk.js.LICENSE.txt",
     "static/media/calculator.f860884b.png": "/dotcalc/static/media/calculator.f860884b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5f25fe33.js",
-    "static/js/2.2275d68e.chunk.js",
-    "static/js/main.4e1e13a5.chunk.js"
+    "static/js/2.1296f084.chunk.js",
+    "static/js/main.96833938.chunk.js"
   ]
 }
