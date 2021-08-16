@@ -1,9 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Dropdown = ({ items, isMobile, onChange }) => {
+const Dropdown = ({ items, isMobile, onClick }) => {
   return (
-    <StyledSelect onClick={onChange} isMobile={isMobile} name="select">
+    <StyledSelect
+      onTouchEnd={onClick}
+      onClick={onClick}
+      isMobile={isMobile}
+      name="select"
+    >
       {items.map((item) => {
         return <StyledOption value={item}>{item}</StyledOption>;
       })}
