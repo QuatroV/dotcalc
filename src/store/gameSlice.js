@@ -17,18 +17,18 @@ export const gameSlice = createSlice({
   reducers: {
     gameInit: (state) => {
       switch (state.gameDifficulty) {
-        case "easy":
-          state.steps = _.random(2, 3);
-          state.current = _.random(1, 5);
-          break;
         case "hard":
           state.steps = _.random(3, 4);
           state.current = _.random(1, 25);
           break;
-        default:
         case "middle":
           state.steps = _.random(2, 3);
           state.current = _.random(1, 10);
+          break;
+        default:
+        case "easy":
+          state.steps = _.random(2, 3);
+          state.current = _.random(1, 5);
           break;
       }
       console.log("before", state.steps);
