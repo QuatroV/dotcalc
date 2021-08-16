@@ -27,7 +27,7 @@ export const gameSlice = createSlice({
           break;
         default:
         case "easy":
-          state.steps = _.random(2, 3);
+          state.steps = _.random(1, 2);
           state.current = _.random(1, 5);
           break;
       }
