@@ -3,12 +3,18 @@ import Icon from "./Icon";
 
 import CalcIcon from "../icons/calculator.png";
 
-const MobileMainTitle = ({ children, hasIcon }) => (
-  <StyledContainer>
-    {hasIcon && <Icon src={CalcIcon} width={"170px"} />}
-    <TitleText>{children}</TitleText>
-  </StyledContainer>
-);
+import { useSelector } from "react-redux";
+
+const MobileMainTitle = ({ children, hasIcon }) => {
+  const gameMode = useSelector((state) => state.game.gameDifficulty);
+  return (
+    <StyledContainer>
+      {gameMode}
+      {hasIcon && <Icon src={CalcIcon} width={"170px"} />}
+      <TitleText>{children}</TitleText>
+    </StyledContainer>
+  );
+};
 
 const StyledContainer = styled.div`
   display: flex;
