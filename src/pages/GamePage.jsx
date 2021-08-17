@@ -11,6 +11,7 @@ import ButtonSection from "../components/ButtonSection";
 import CompareContainer from "../components/CompareContainer";
 import MobileContainer from "../components/MobileContainer";
 import MobileMainTitle from "../components/MobileMainTitle";
+import Footer from "../components/Footer";
 import MobileYourScoreContainer from "../components/MobileYourScoreContainer";
 
 import TitleContainer from "../components/TitleContainer";
@@ -26,6 +27,7 @@ const GamePage = () => {
           <TargetContainer />
           <YourScoreContainer />
           <CompareContainer />
+          <Footer>By QuatroV</Footer>
         </MainContainer>
       </BrowserView>
       <MobileView>

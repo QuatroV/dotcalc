@@ -6,10 +6,8 @@ import CalcIcon from "../icons/calculator.png";
 import { useSelector } from "react-redux";
 
 const MobileMainTitle = ({ children, hasIcon }) => {
-  const gameMode = useSelector((state) => state.game.gameDifficulty);
   return (
     <StyledContainer>
-      {gameMode}
       {hasIcon && <Icon src={CalcIcon} width={"170px"} />}
       <TitleText>{children}</TitleText>
     </StyledContainer>

@@ -47,6 +47,8 @@ const StyledBackground = styled.div`
   display: flex;
   align-items: ${(props) => (props.isMobile ? "flex-start" : "center")};
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export default Background;

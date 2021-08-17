@@ -7,6 +7,7 @@ import MobileMainTitle from "../components/MobileMainTitle";
 import MainContainer from "../components/MainContainer";
 import Card from "../components/Card";
 import Dropdown from "../components/Dropdown";
+import Footer from "../components/Footer";
 import styled from "styled-components";
 
 import { gameDifficulties } from "../assets/constants";
@@ -17,14 +18,15 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { gameInit } from "../store/gameSlice";
 import { BrowserView, MobileView } from "react-device-detect";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const StartPage = () => {
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    const { value } = e.target;
-    dispatch(setGameDifficulty(value));
+  const handleClick = () => {
+    const gameDifficulty = document.querySelector("#dropdown").value;
+    dispatch(setGameDifficulty(gameDifficulty));
+    dispatch(gameInit());
   };
 
   return (
@@ -49,17 +51,13 @@ const StartPage = () => {
           <Container>
             <StyledWrapper>
               <StyledDifficultyText>Difficulty:</StyledDifficultyText>
-              <Dropdown onClick={handleClick} items={gameDifficulties} />
-              <StyledLink
-                to="/game"
-                onClick={() => {
-                  dispatch(gameInit());
-                }}
-              >
+              <Dropdown id="dropdown" items={gameDifficulties} />
+              <StyledLink to="/game" onClick={handleClick}>
                 <Button type="primary">Start game</Button>
               </StyledLink>
             </StyledWrapper>
           </Container>
+          <Footer>By QuatroV</Footer>
         </MainContainer>
       </BrowserView>
       <MobileView>
@@ -81,13 +79,8 @@ const StartPage = () => {
         <MobileContainer>
           <StyledWrapper>
             <StyledDifficultyText>Difficulty:</StyledDifficultyText>
-            <Dropdown isMobile onClick={handleClick} items={gameDifficulties} />
-            <StyledMobileLink
-              to="/game"
-              onClick={() => {
-                dispatch(gameInit());
-              }}
-            >
+            <Dropdown isMobile id="dropdown" items={gameDifficulties} />
+            <StyledMobileLink to="/game" onClick={handleClick}>
               <Button isMobile type="primary">
                 Start game
               </Button>
